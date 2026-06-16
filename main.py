@@ -5,25 +5,27 @@ from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score, classification_report
 
-DATASET_PATH = 'dataset'
 classes = ['Pizza', 'Burger', 'Sushi', 'Salad']
 
 X = []
 y = []
 
 for label, food in enumerate(classes):
-    folder = os.path.join(DATASET_PATH, food)
+    folder = food
+
     if not os.path.exists(folder):
         continue
 
     for file in os.listdir(folder):
         path = os.path.join(folder, file)
         img = cv2.imread(path)
+
         if img is None:
             continue
 
         img = cv2.resize(img, (64, 64))
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
         X.append(img.flatten())
         y.append(label)
 
