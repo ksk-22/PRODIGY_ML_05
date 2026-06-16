@@ -42,6 +42,14 @@ macro avg       0.06      0.12      0.08         9
 weighted avg    0.06      0.11      0.07         9
 ```
 
+### Note on Accuracy
+
+The model achieved a relatively low accuracy because it was trained on a very small custom dataset containing only 41 images across four food categories.
+
+Image classification models generally require hundreds or thousands of images per class to learn meaningful visual patterns. With a limited dataset, the SVM classifier is unable to generalize effectively, resulting in lower performance.
+
+The primary objective of this task was to demonstrate the complete machine learning workflow, including image preprocessing, feature extraction, classification, and calorie estimation. Model performance can be significantly improved by using a larger and more diverse dataset.
+
 ### Calorie Reference
 | Food | Calories (Approx.) |
 |------|-------------------|
